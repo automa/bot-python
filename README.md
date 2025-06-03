@@ -11,7 +11,7 @@ Please read the [Bot Development](https://docs.automa.app/bot-development) docs 
 
 Start the app in production mode:
 
-```
+```sh
 PYTHON_ENV=production uv run fastapi run
 ```
 
@@ -21,7 +21,7 @@ Needs [git](https://git-scm.org) to be installed on production.
 
 Start the app in development mode:
 
-```
+```sh
 uv run fastapi dev
 ```
 
@@ -29,7 +29,7 @@ uv run fastapi dev
 
 Run tests with:
 
-```
+```sh
 uv run pytest
 ```
 
