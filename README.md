@@ -1,9 +1,9 @@
 # bot-python
 Starter kit for Python bot for Automa
 
-Please read the [Bot Development](https://docs.automa.app/bot-development) docs to understand how this bot works.
+Please read the [Bot Development](https://docs.automa.app/bot-development) docs to understand how an [Automa][automa] bot works and how to develop it.
 
-* `/automa` endpoint is the receiver for the webhook from [Automa](https://automa.app)
+* `/automa` endpoint is the receiver for the webhook from [Automa][automa]
 * `update` function in `app/update.py` is the logic responsible for updating code.
 * `AUTOMA_WEBHOOK_SECRET` environment variable is available to be set instead of hard-coding it.
 
@@ -35,3 +35,6 @@ uv run pytest
 
 * Uses [uv](https://docs.astral.sh/uv/) as a package manager.
 * Uses [fastapi](https://fastapi.tiangolo.com/) as a server.
+* Need [git](https://git-scm.org) to be installed in production.
+
+[automa]: https://automa.app
