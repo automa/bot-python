@@ -15,6 +15,8 @@ Start the app in production mode:
 PYTHON_ENV=production uv run fastapi run
 ```
 
+Needs [git](https://git-scm.org) to be installed on production.
+
 ### Development
 
 Start the app in development mode:
@@ -35,6 +37,5 @@ uv run pytest
 
 * Uses [uv](https://docs.astral.sh/uv/) as a package manager.
 * Uses [fastapi](https://fastapi.tiangolo.com/) as a server.
-* Need [git](https://git-scm.org) to be installed in production.
 
 [automa]: https://automa.app
