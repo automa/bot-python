@@ -53,7 +53,7 @@ async def automa_hook(request: Request):
             {
                 **body["data"],
                 "proposal": {
-                    "message": "We changed your code",
+                    "title": "We changed your code",
                 },
             }
         )
