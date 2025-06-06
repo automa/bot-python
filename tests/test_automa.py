@@ -83,7 +83,7 @@ def test_valid_signature(download_mock, propose_mock, cleanup_mock, client):
                 "token": "abcdef",
                 "title": "Running bot-python on sample-repo",
             },
-            "proposal": {"message": "We changed your code"},
+            "proposal": {"title": "We changed your code"},
         }
     )
 
@@ -160,7 +160,7 @@ def test_propose_error(download_mock, propose_mock, cleanup_mock, client):
                 "token": "abcdef",
                 "title": "Running bot-python on sample-repo",
             },
-            "proposal": {"message": "We changed your code"},
+            "proposal": {"title": "We changed your code"},
         }
     )
 
