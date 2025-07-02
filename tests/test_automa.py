@@ -26,6 +26,20 @@ def call_with_fixture(client, filename):
     )
 
 
+def test_non_task_created(client):
+    """Test the Automa webhook endpoint with non task created event."""
+
+    headers = {}
+
+    response = client.post(
+        "/automa",
+        content=b'{ "id": "whmsg_1", "timestamp": "2025-05-30T09:30:06.261Z", "type": "proposal.rejected" }',
+        headers=headers,
+    )
+
+    assert response.status_code == 204
+
+
 @pytest.mark.parametrize(
     "signature",
     [
@@ -43,7 +57,7 @@ def test_invalid_signature(client, signature):
 
     response = client.post(
         "/automa",
-        content=b'{ "id": "whmsg_1", "timestamp": "2025-05-30T09:30:06.261Z" }',
+        content=b'{ "id": "whmsg_1", "timestamp": "2025-05-30T09:30:06.261Z", "type": "task.created" }',
         headers=headers,
     )
 

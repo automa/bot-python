@@ -19,7 +19,13 @@ async def health_check():
 @app.post("/automa")
 async def automa_hook(request: Request):
     signature = request.headers.get("webhook-signature")
+
     payload = (await request.body()).decode("utf-8")
+    body = json.loads(payload)
+
+    # Skip if not `task.created` event
+    if "type" not in body or body["type"] != "task.created":
+        return Response(status_code=204)
 
     # Verify request
     if not verify_webhook(env().automa_webhook_secret, signature, payload):
@@ -30,7 +36,6 @@ async def automa_hook(request: Request):
         return Response(status_code=401)
 
     base_url = request.headers.get("x-automa-server-host")
-    body = json.loads(payload)
 
     # Create client with base URL
     automa = AsyncAutoma(base_url=base_url)
