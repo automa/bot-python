@@ -1,7 +1,7 @@
 # bot-python
 Starter kit for Python bot for Automa
 
-Please read the [Agent Development](https://docs.automa.app/agent-development) docs to understand how an [Automa][automa] bot works and how to develop it.
+Please read the [Bot Development](https://docs.automa.app/bot-development) docs to understand how an [Automa][automa] bot works and how to develop it.
 
 * `/automa` endpoint is the receiver for the webhook from [Automa][automa]
 * `update` function in `app/update.py` is the logic responsible for updating code.
