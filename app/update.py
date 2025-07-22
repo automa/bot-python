@@ -1,7 +1,7 @@
-from automa.bot import CodeFolder
+from automa.bot import CodeFolder, TaskForCode
 
 
-def update(folder: CodeFolder):
+def update(folder: CodeFolder, task: TaskForCode):
     """
     Update code in the specified folder.
     """
