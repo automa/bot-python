@@ -1,7 +1,8 @@
 import json
 import logging
+from typing import cast
 
-from automa.bot import AsyncAutoma
+from automa.bot import AsyncAutoma, CodeProposeParams
 from automa.bot.webhook import verify_webhook
 from fastapi import FastAPI, Request, Response
 
@@ -28,7 +29,9 @@ async def automa_hook(request: Request):
         return Response(status_code=204)
 
     # Verify request
-    if not verify_webhook(env().automa_webhook_secret, signature, payload):
+    if signature is None or not verify_webhook(
+        env().automa_webhook_secret, signature, payload
+    ):
         logging.warning(
             "Invalid signature",
         )
@@ -55,12 +58,15 @@ async def automa_hook(request: Request):
 
         # Propose code
         await automa.code.propose(
-            {
-                **body["data"],
-                "proposal": {
-                    "title": "We changed your code",
+            cast(
+                CodeProposeParams,
+                {
+                    **body["data"],
+                    "proposal": {
+                        "title": "We changed your code",
+                    },
                 },
-            }
+            )
         )
     finally:
         # Clean up
