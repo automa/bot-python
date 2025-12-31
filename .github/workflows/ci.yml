@@ -42,5 +42,7 @@ jobs:
           version: 0.7
       - name: Install dependencies
         run: uv sync
+      - name: Type check
+        run: uv run ty check
       - name: Run tests
         run: PYTHON_ENV=test uv run pytest
